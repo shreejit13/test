@@ -1,20 +1,40 @@
-pipeline{
-  agent any
-    stages{
-      stage('stage1'){
-        steps{
-          ehco "stage1"
+pipeline {
+    agent any
+    stages {
+        stage('checkout git') {
+            steps {
+                echo 'checkout git'
+            }
         }
-      }
-      stage('stage2'){
-        steps{
-          ehco "stage2"
+
+        stage('build') {
+            steps {
+                echo 'build'
+            }
         }
-      }
-      stage('stage3'){
-        steps{
-          ehco "stage4"
+
+        stage ('test') {
+            steps {
+                echo 'test'
+            }
         }
-      }
+
+        stage('deploy development'){
+            steps {
+                echo 'dev'
+            }
+        }
+
+        stage('deploy staging'){
+            steps {
+                echo 'stage'
+            }
+        }
+
+        stage('deploy production'){
+            steps {
+                echo 'prod'
+            }
+        }
     }
 }
